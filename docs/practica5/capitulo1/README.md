@@ -61,6 +61,7 @@ indicar coincidencias alternativas.
 
 Además de estos elementos, podemos servirnos de símbolos para extender
 su uso. Estos símbolos son:
+
 | Símbolo | Descripción |
 |:---:|:---|
 | n+ | Marca como coincidencia la cadena que contenga uno o más caracteres n |

@@ -61,18 +61,18 @@ indicar coincidencias alternativas.
 
 Además de estos elementos, podemos servirnos de símbolos para extender
 su uso. Estos símbolos son:
-|Símbolo|Descripción|
+| Símbolo | Descripción |
 |:---:|:---|
-|n+| Marca como coincidencia la cadena que contenga uno o más caracteres n|
-|n*| Marca como coincidencia la cadena que contenga cero o más caracteres n|
-|n?| Marca como coincidencia la cadena que contenga cero o un caracteres n|
-|n{X}| Marca como coincidencia la cadena que contenga X elementos n |
-|n{X,Y}| Marca como coincidencia la cadena que contenga de X a Y elementos n|
-|n{X,}| Marca como coincidencia la cadena que contenga al menos X elementos n |
-|n$| Marca como coincidencia la cadena que acabe con el elemento n|
-|^n| Marca como coincidencia la cadena con el elemento n al principio |
-|?=n| Marca como coincidencia cualquier cadena seguida de una cadena n|
-|?!n| Marca como coincidencia cualquier cadena que no esté seguida de una cadena n|
+| n+ | Marca como coincidencia la cadena que contenga uno o más caracteres n |
+| n* | Marca como coincidencia la cadena que contenga cero o más caracteres n |
+| n? | Marca como coincidencia la cadena que contenga cero o un caracteres n |
+| n{X} | Marca como coincidencia la cadena que contenga X elementos n  |
+| n{X,Y} | Marca como coincidencia la cadena que contenga de X a Y elementos n |
+| n{X,} | Marca como coincidencia la cadena que contenga al menos X elementos n |
+| n$ | Marca como coincidencia la cadena que acabe con el elemento n |
+| ^n | Marca como coincidencia la cadena con el elemento n al principio |
+| ?=n | Marca como coincidencia cualquier cadena seguida de una cadena n |
+| ?!n | Marca como coincidencia cualquier cadena que no esté seguida de una cadena n |
 
 ## Expresiones Regulares en JavaScript
 

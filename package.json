@@ -17,6 +17,15 @@
   },
   "homepage": "https://github.com/ULL-ESIT-PL-1617/analizador-lexico-para-un-subconjunto-de-javascript-antonio-ernesto-sebastian#readme",
   "devDependencies": {
-    "express": "^4.15.2"
+    "async": "^1.4.0",
+    "fs-extra": "^0.22.1",
+    "gh-pages": "^0.12.0",
+    "express": "^4.15.2",
+    "gulp-cli": "^1.2.2"
+  },
+  "dependencies": {
+    "gitbook-cli": "^0.3.6",
+    "simple-git": "^1.67.0",
+    "minimist": "^1.2.0"
   }
 }

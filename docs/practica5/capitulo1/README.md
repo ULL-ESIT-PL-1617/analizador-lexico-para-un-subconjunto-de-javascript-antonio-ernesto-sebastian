@@ -106,12 +106,76 @@ Prueba el método en [W3Schools - replace()][replaceMethod]
 
 ### Expresiones regulares utilizando objetos RegExp
 
-))))))))))))))> Test, Exec
-)))))))))))))))))))))> lastIndex, source
+Las expresiones regulares pueden ser tratadas como objetos en JavaScript para encontrar coincidencias en texto.
+El constructor para este objeto puede escribirse de forma literal, una expresión regular escrita, o puede utilizarse
+un método constructor tal que __new RegExp(pattern [, flags]);__.
 
-## Expresiones Regulares extendidas
+Si la expresión se mantendrá constante es recomendable utilizar la construcción literal de la expresión, ya que de esta
+forma se compila la expresión cuando es evaluada. Esto permite, por ejemplo, que la expresión no sea recompilada en cada
+iteración de un bucle en el que sea utilizada. Por otro lado, si no se conoce la expresión regular a usar debido a que
+es proveída por otra fuente o si la expresión se verá modificada con el tiempo, lo recomendable es que se utilice el constructor
+de la expresión.
 
----XRegExp---
+__Se ha de tener en  cuenta que en el caso del método constructor, la cadena de caracteres pasada por parámetros deberá tener 
+las barras inclinadas por duplicado, debido a que no son tratados como caracteres especiales.__ 
+
+Por ejemplo:
+
+    var re = /\w+/;
+    var re = new RegExp("\\w+");
+    
+Estas inicializaciones son equivalentes; sin embargo, se puede observar que para el caso del constructor del objeto, la cadena
+no tiene los delimitadores de expresión regular a los lados y la barra lateral para indicar el metacaracter _w_ está duplicada
+para que sea tenida en cuenta.
+
+#### Método test()
+
+El método __test()__ permite comprobar si hay coincidencias dentro de una cadena de caracteres. Devuelve un valor booleano _verdadero_
+si la coincidencia es conseguida, _falso_ en el caso contrario.
+
+    var str = "The best things in life are free";
+    var patt = new RegExp("e");
+    var res = patt.test(str);
+
+La variable res tendría como valor __true__ en este caso.
+
+Prueba el método en [W3Schools - test()][testMethod]
+
+#### Método exec()
+
+El método __exec()__ permite encontrar una coincidencia dentro de una cadena de caracteres y devolverla como resultado de su uso.
+Para obtener un valor booleano _verdadero_ en caso de encontrar la coincidencia, o _falso_ en caso contrario, bastaría con ejecutar
+_RegExp_.prototype.test() o _String_.prototype.search(). 
+
+    var str = "The best things in life are free";
+    var patt = new RegExp("e");
+    var res = patt.exec(str);
+
+La variable res tendría como valor _e_ en este caso.
+
+Prueba el método en [W3Schools - exec()][execMethod]
+
+#### Aspectos de RegExp Objects a tener en cuenta
+
+- __lastIndex__
+
+    El objeto RegExp permite mediante este parámetro conocer el índice a partir del que acaba la primera coincidencia obtenida en
+una cadena de caracteres.
+
+- __source__
+    
+    El objeto RegExp permite conocer la cadena que conforma el patrón de caracteres.
+
+## XRegExp - Expresiones Regulares extendidas
+
+XRegExp permite el uso de expresiones regulares más sofisticadas en JavaScript, más allá de las expresiones regulares soportadas
+por los navegadores comunes de forma nativa. Entre sus rasgos más característicos, podemos resaltar su capacidad para evitar
+inconsistencias entre navegadores respecto a la sintaxis y el comportamiento, y el haber añadido otros modificadores de patrones.
+
+
 
 [replaceMethod]: https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_search
 [searchMethod]: https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_replace_regexp
+
+[testMethod]: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_regexp_test2
+[execMethod]: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_regexp_exec2

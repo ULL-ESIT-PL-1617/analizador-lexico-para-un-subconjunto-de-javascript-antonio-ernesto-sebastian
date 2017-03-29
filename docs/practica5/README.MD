@@ -1,7 +1,6 @@
 # Analizador Léxico para un subconjunto de JavaScript
 
-## Tareas a desarrollar
-
+## Tareas:
   - Estudiar el fichero [tokens.js](https://github.com/douglascrockford/TDOP/blob/master/tokens.js)
   - Modificar el fichero [tokens.js](https://github.com/douglascrockford/TDOP/blob/master/tokens.js) para utilizar expresiones regulares para el análisis léxico.
   - Ampliar el GitBook describiendo las expresiones regulares y lo aprendido en esta práctica
@@ -13,4 +12,3 @@
   * [Antonio Jesús López Garnier](https://antoniogarnier.github.io)
   * [Ernesto Echeverría González](https://akaibf.github.io/)
   * [Sebastian Díaz Rodríguez](https://alu0100893649.github.io/)
-s

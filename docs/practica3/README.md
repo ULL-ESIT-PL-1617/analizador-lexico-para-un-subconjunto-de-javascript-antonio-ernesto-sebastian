@@ -20,16 +20,13 @@
 
    * [Antonio Jesús López Garnier](https://antoniogarnier.github.io)
 
-         * [Despliegue en GitHub](https://antoniogarnier.github.io/estudiar-las-rutas-en-expressjs-alberto-antonio/)
-
-         * [Despiegue en Heroku](https://estudiar-rutas-expressjs-anto.herokuapp.com/)
-
-         * [Despliegue en el IAAS](http://10.6.128.121:8081/)
-
    * [Ernesto Echeverría González](https://akaibf.github.io/)
-
-      **Añadir despliegues**
-
    * [Sebastian Díaz Rodríguez](https://alu0100893649.github.io/)
 
-      **Añadir despliegues**
+   * Despliegues:
+
+      * [Despliegue en GitHub](https://antoniogarnier.github.io/estudiar-las-rutas-en-expressjs-alberto-antonio/)
+
+      * [Despiegue en Heroku](https://estudiar-rutas-expressjs-anto.herokuapp.com/)
+
+      * [Despliegue en el IAAS](http://10.6.128.121:8081/)

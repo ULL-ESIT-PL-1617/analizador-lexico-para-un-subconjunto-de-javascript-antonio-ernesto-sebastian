@@ -9,7 +9,7 @@
     * [Capítulo 5 - GitBook](practica1-2/capitulo5/README.md)
     * [Capítulo 6 - Gh-pages](practica1-2/capitulo6/README.md)
 * [Práctica 3: Estudiar las rutas en ExpressJS](practica3/README.md)
-    * [Introducción](README.md)
+    * [Introducción](practica3/README.md)
     * [Basic Routing](practica3/capitulo1/README.md)
     * [Routing Guide](practica3/capitulo2/README.md)
     * [Using Middleware](practica3/capitulo3/README.md)

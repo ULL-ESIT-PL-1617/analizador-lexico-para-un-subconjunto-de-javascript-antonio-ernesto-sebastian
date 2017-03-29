@@ -10,7 +10,9 @@ nuestros programas.
 La sintaxis aplicada en las expresiones regulares, en el caso del
 lenguaje JavaScript, es:
 
-        /pattern/modifiers;
+```
+    /pattern/modifiers;
+```
 
 La sección comprendida entre barras inclinadas, __pattern__, es el
 patrón que se desea utilizar. La sección posterior, __modifiers__, es
@@ -85,8 +87,10 @@ El método __search()__ permite buscar un patrón dentro de una cadena
 de caracteres (un String). Devuelve el índice de la primera
 coincidencia.
 
+```javascript
     var str = "Cadena de prueba";
     var indice = str.search("ena");
+```
 
 En este ejemplo, el valor de indice sería __3__.
 
@@ -97,8 +101,10 @@ Prueba el método en [W3Schools - search()][searchMethod]
 El método __replace()__ permite reemplazar una sección de la cadena
 que coincide con el patrón introducido.
 
+```javascript
     var str = "Cadena de prueba";
     var str2 = str.replace(ena, "enas");
+```
 
 En este ejemplo, la cadena str2 tiene por valor la cadena __"Cadenas de prueba"__.
 
@@ -121,8 +127,10 @@ las barras inclinadas por duplicado, debido a que no son tratados como caractere
 
 Por ejemplo:
 
+```javascript
     var re = /\w+/;
     var re = new RegExp("\\w+");
+```
 
 Estas inicializaciones son equivalentes; sin embargo, se puede observar que para el caso del constructor del objeto, la cadena
 no tiene los delimitadores de expresión regular a los lados y la barra lateral para indicar el metacaracter _w_ está duplicada
@@ -133,9 +141,11 @@ para que sea tenida en cuenta.
 El método __test()__ permite comprobar si hay coincidencias dentro de una cadena de caracteres. Devuelve un valor booleano _verdadero_
 si la coincidencia es conseguida, _falso_ en el caso contrario.
 
+```javascript
     var str = "The best things in life are free";
     var patt = new RegExp("e");
     var res = patt.test(str);
+```
 
 La variable res tendría como valor __true__ en este caso.
 
@@ -147,10 +157,11 @@ El método __exec()__ permite encontrar una coincidencia dentro de una cadena de
 Para obtener un valor booleano _verdadero_ en caso de encontrar la coincidencia, o _falso_ en caso contrario, bastaría con ejecutar
 _RegExp_.prototype.test() o _String_.prototype.search().
 
+```javascript
     var str = "The best things in life are free";
     var patt = new RegExp("e");
     var res = patt.exec(str);
-
+```
 La variable res tendría como valor _e_ en este caso.
 
 Prueba el método en [W3Schools - exec()][execMethod]
@@ -202,14 +213,14 @@ estos objetos.
 
 Su declaración es la siguiente:
 
+```javascript
     XRegExp.addToken(regex, handler, [options])
-
-Donde __*regex*__ es la expresión regular extendida a la que se le añadirá el nuevo token, __*handler*__ es la
+```
+Donde __*regex*__ es la expresión regular extendida a la que se le añadirá el nuevo token, __*handler*__ es la 
 función que modificará este patrón y que añadirá significado y __*[options]*__, los modificadores, como son las
 flags o el ámbito de trabajo.
 
-```Java
-
+```javascript
     XRegExp.addToken(
       /\[:([a-z\d]+):]/i,
       (function() {
@@ -249,12 +260,15 @@ o xdigit para identificar un número hexadecimal.
 
 Su declaración es la siguiente:
 
+```javascript
     XRegExp.build(pattern, subs, [flags])
+```
 
 Donde __*pattern*__ es la expresión regular extendida con las referencias a los subpatrones que la forman,
 __*subs*__ es la función que forma los subpatrones que conforman la expresión regular extendida, y __*[flags]*__
 contiene los modificadores aplicados a la expresión.
 
+```javascript
     var time = XRegExp.build('(?x)^ {{hours}} ({{minutes}}) $', {
       hours: XRegExp.build('{{h12}} : | {{h24}}', {
         h12: /1[0-2]|0?[1-9]/,
@@ -265,6 +279,7 @@ contiene los modificadores aplicados a la expresión.
 
     time.test('10:59'); // -> true
     XRegExp.exec('10:59', time).minutes; // -> '59'
+```
 
 En este ejemplo se utiliza el método build para crear un patrón con el objetivo de identificar la hora y si es
 en sistema militar o si es de ciclos de doce horas.
@@ -275,7 +290,9 @@ __Para la utilización de este método es necesaria la instalación del addon XR
 
 Su declaración es la siguiente:
 
+```javascript
     XRegExp.exec(str, regex, [pos], [sticky])
+```
 
 Donde __*str*__ es la cadena de caracteres a examinar; __*regex*__, la expresión de evaluación; __*[pos]*__, el
 índice de comienzo del análisis, y __*[sticky]*__, un booleano que indica si el análisis solo puede empezar

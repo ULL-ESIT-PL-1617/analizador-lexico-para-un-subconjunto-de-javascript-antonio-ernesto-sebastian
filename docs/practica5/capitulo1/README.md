@@ -11,7 +11,7 @@ La sintaxis aplicada en las expresiones regulares, en el caso del
 lenguaje JavaScript, es:
 
         /pattern/modifiers;
-    
+
 La sección comprendida entre barras inclinadas, __pattern__, es el
 patrón que se desea utilizar. La sección posterior, __modifiers__, es
 un conjunto de modificadores para indicar un comportamiento en el
@@ -23,7 +23,7 @@ patrón.
 |g| Marca el patrón para encontrar todas las coincidencias dentro de una cadena, no solo la primera. |
 |m| Marca el patrón para analizar en múltiples líneas|
 
-### Patrones 
+### Patrones
 
 Las expresiones regulares aplicadas en JavaScript siguen una sintaxis
 definida por cochetes, paréntesis, barras inclinadas y otros símbolos.
@@ -34,7 +34,7 @@ definida por cochetes, paréntesis, barras inclinadas y otros símbolos.
 | ( ) | Paréntesis. Permiten organizar y separar diferentes fragmentos del patrón  |
 
 __Dentro de los paréntesis puede indicarse un conjunto de caracteres
-usando el guión__ ([0-9] indica un elemento que coincida con un 
+usando el guión__ ([0-9] indica un elemento que coincida con un
 número), además de poder utilizarse el operador booleano __|__ para
 indicar coincidencias alternativas.
 
@@ -87,7 +87,7 @@ coincidencia.
 
     var str = "Cadena de prueba";
     var indice = str.search("ena");
-    
+
 En este ejemplo, el valor de indice sería __3__.
 
 Prueba el método en [W3Schools - search()][searchMethod]
@@ -99,7 +99,7 @@ que coincide con el patrón introducido.
 
     var str = "Cadena de prueba";
     var str2 = str.replace(ena, "enas");
-    
+
 En este ejemplo, la cadena str2 tiene por valor la cadena __"Cadenas de prueba"__.
 
 Prueba el método en [W3Schools - replace()][replaceMethod]
@@ -116,14 +116,14 @@ iteración de un bucle en el que sea utilizada. Por otro lado, si no se conoce l
 es proveída por otra fuente o si la expresión se verá modificada con el tiempo, lo recomendable es que se utilice el constructor
 de la expresión.
 
-__Se ha de tener en  cuenta que en el caso del método constructor, la cadena de caracteres pasada por parámetros deberá tener 
-las barras inclinadas por duplicado, debido a que no son tratados como caracteres especiales.__ 
+__Se ha de tener en  cuenta que en el caso del método constructor, la cadena de caracteres pasada por parámetros deberá tener
+las barras inclinadas por duplicado, debido a que no son tratados como caracteres especiales.__
 
 Por ejemplo:
 
     var re = /\w+/;
     var re = new RegExp("\\w+");
-    
+
 Estas inicializaciones son equivalentes; sin embargo, se puede observar que para el caso del constructor del objeto, la cadena
 no tiene los delimitadores de expresión regular a los lados y la barra lateral para indicar el metacaracter _w_ está duplicada
 para que sea tenida en cuenta.
@@ -145,7 +145,7 @@ Prueba el método en [W3Schools - test()][testMethod]
 
 El método __exec()__ permite encontrar una coincidencia dentro de una cadena de caracteres y devolverla como resultado de su uso.
 Para obtener un valor booleano _verdadero_ en caso de encontrar la coincidencia, o _falso_ en caso contrario, bastaría con ejecutar
-_RegExp_.prototype.test() o _String_.prototype.search(). 
+_RegExp_.prototype.test() o _String_.prototype.search().
 
     var str = "The best things in life are free";
     var patt = new RegExp("e");
@@ -163,7 +163,7 @@ Prueba el método en [W3Schools - exec()][execMethod]
 una cadena de caracteres.
 
 - __source__
-    
+
     El objeto RegExp permite conocer la cadena que conforma el patrón de caracteres.
 
 ## XRegExp - Expresiones Regulares extendidas
@@ -204,7 +204,7 @@ Su declaración es la siguiente:
 
     XRegExp.addToken(regex, handler, [options])
 
-Donde __*regex*__ es la expresión regular extendida a la que se le añadirá el nuevo token, __*handler*__ es la 
+Donde __*regex*__ es la expresión regular extendida a la que se le añadirá el nuevo token, __*handler*__ es la
 función que modificará este patrón y que añadirá significado y __*[options]*__, los modificadores, como son las
 flags o el ámbito de trabajo.
 
@@ -266,7 +266,7 @@ contiene los modificadores aplicados a la expresión.
     time.test('10:59'); // -> true
     XRegExp.exec('10:59', time).minutes; // -> '59'
 
-En este ejemplo se utiliza el método build para crear un patrón con el objetivo de identificar la hora y si es 
+En este ejemplo se utiliza el método build para crear un patrón con el objetivo de identificar la hora y si es
 en sistema militar o si es de ciclos de doce horas.
 
 __Para la utilización de este método es necesaria la instalación del addon XRegExp.build__
@@ -277,8 +277,8 @@ Su declaración es la siguiente:
 
     XRegExp.exec(str, regex, [pos], [sticky])
 
-Donde __*str*__ es la cadena de caracteres a examinar; __*regex*__, la expresión de evaluación; __*[pos]*__, el 
-índice de comienzo del análisis, y __*[sticky]*__, un booleano que indica si el análisis solo puede empezar 
+Donde __*str*__ es la cadena de caracteres a examinar; __*regex*__, la expresión de evaluación; __*[pos]*__, el
+índice de comienzo del análisis, y __*[sticky]*__, un booleano que indica si el análisis solo puede empezar
 desde una posición determinada o no. Su función es la de buscar coincidencias del patrón en la cadena y devolverlas
 como resultado. En caso de no encontrar coincidencias, devuelve el valor _null_.
 

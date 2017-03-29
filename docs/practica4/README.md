@@ -1,7 +1,6 @@
 # Estudiar las cookies y sessions en expressJS
 
-## Tareas a desarrollar
-
+## Tareas a desarrollar
 
   - Elaboración de un GitBook con apuntes sobre las cookies y las sessions.
   - Scripts de ejemplo.

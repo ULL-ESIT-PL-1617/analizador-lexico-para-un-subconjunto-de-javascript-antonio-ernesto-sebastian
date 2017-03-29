@@ -172,10 +172,121 @@ XRegExp permite el uso de expresiones regulares más sofisticadas en JavaScript,
 por los navegadores comunes de forma nativa. Entre sus rasgos más característicos, podemos resaltar su capacidad para evitar
 inconsistencias entre navegadores respecto a la sintaxis y el comportamiento, y el haber añadido otros modificadores de patrones.
 
+Los objetos XRegExp tienen por constructor __XRegExp__(_Pattern_ | _[flags]_). Pattern es el patrón de la expresión
+regular que deseamos utilizar para evaluar texto, mientras que las flags son indicadores de cómo queremos realizar
+esa búsqueda de patrones. Los modificadores añadidos por XRegExp para extender su funcionamiento son:
 
+Los patrones de la expresión regular extendida tienen nombre asignado dentro del objeto (?<name>). Estas capturas solo permiten
+caracteres de las series a-z, A-Z y 0-9, además del símbolo $. Aunque las capturas con nombre son aceptadas por
+los métodos nativos, se deben utilizar los métodos de XRegExp (XRegExp.exec y XRegExp.replace) para acceder a
+las referencias nominadas.
+
+Para información más detallada sobre la nueva sintaxis implementada: [XRegExp - Sintaxis][XRESintaxis]
+
+| Modificador | Descripción |
+|:---:|:---|
+| n | Captura explícita. Los patrones indicados por grupos tal que __(?<name> ... )__ son las únicas búsquedas válidas. Esto ahorra las indicaciones para los grupos de no captura al no necesitar indicarlos como __(?:...)__ |
+| s | Indica que un punto marca el fin de una línea. Pueden utilizarse códigos Unicode para representar cualquier tipo de punto final de línea |
+| x | Ignora la mayoría de espacios en blanco y permite comentarios tras la tag #. Los espacios en blanco ignorados son aquellos coincidentes con el símbolo nativo \s |
+| A | _Astral mode_. Hace que se soporten en el patrón los símbolos del [_Plano Multilenguaje Básico_][PMB]. Cuando se está en modo Astral, \p{...} y \P{...} permiten cualquier símbolo Unicode. Requiere del addon Unicode Base |
+
+__Las flags no son pasadas al construir una expresión regular extendida a partir de una expresión regular no extendida.__
+
+### Funciones de XRegExp
+
+Aunque son muchos los métodos que pertenecen a las expresiones regulares extendidas XRegExp, tres de estos métodos,
+addToken(), build() y exec(), merecen cierto incapie en primera instancia para aquellos interesados en el uso de
+estos objetos.
+
+#### XRegExp.addToken
+
+Su declaración es la siguiente:
+
+    XRegExp.addToken(regex, handler, [options])
+
+Donde __*regex*__ es la expresión regular extendida a la que se le añadirá el nuevo token, __*handler*__ es la 
+función que modificará este patrón y que añadirá significado y __*[options]*__, los modificadores, como son las
+flags o el ámbito de trabajo.
+
+```Java
+
+    XRegExp.addToken(
+      /\[:([a-z\d]+):]/i,
+      (function() {
+        var posix = {
+          alnum : 'A-Za-z0-9',
+          alpha : 'A-Za-z',
+          ascii : '\\0-\\x7F',
+          blank : ' \\t',
+          cntrl : '\\0-\\x1F\\x7F',
+          digit : '0-9',
+          graph : '\\x21-\\x7E',
+          lower : 'a-z',
+          print : '\\x20-\\x7E',
+          punct : '!"#$%& \'()*+,\\-./:;<=>?@[\\\\\\]^_`{|}~',
+          space : ' \\t\\r\\n\\v\\f',
+          upper : 'A-Z',
+          word  : 'A-Za-z0-9_',
+          xdigit: 'A-Fa-f0-9'
+        };
+        return function(match) {
+          if (!posix[match[1]]) {
+            throw new SyntaxError(match[1] + ' is not a valid POSIX character class');
+          }
+          return posix[match[1]];
+        };
+      }()),
+      {scope: 'class'}
+    );
+    XRegExp('^[[:xdigit:][:space:]]+$').test('00A9 1B7F'); // -> true
+
+```
+
+En este ejemplo se puede ver cómo se crea diferentes tokens, como alpha para identificar letras del abecedario
+o xdigit para identificar un número hexadecimal.
+
+#### XRegExp.build
+
+Su declaración es la siguiente:
+
+    XRegExp.build(pattern, subs, [flags])
+
+Donde __*pattern*__ es la expresión regular extendida con las referencias a los subpatrones que la forman,
+__*subs*__ es la función que forma los subpatrones que conforman la expresión regular extendida, y __*[flags]*__
+contiene los modificadores aplicados a la expresión.
+
+    var time = XRegExp.build('(?x)^ {{hours}} ({{minutes}}) $', {
+      hours: XRegExp.build('{{h12}} : | {{h24}}', {
+        h12: /1[0-2]|0?[1-9]/,
+        h24: /2[0-3]|[01][0-9]/
+      }, 'x'),
+      minutes: /^[0-5][0-9]$/
+    });
+
+    time.test('10:59'); // -> true
+    XRegExp.exec('10:59', time).minutes; // -> '59'
+
+En este ejemplo se utiliza el método build para crear un patrón con el objetivo de identificar la hora y si es 
+en sistema militar o si es de ciclos de doce horas.
+
+__Para la utilización de este método es necesaria la instalación del addon XRegExp.build__
+
+#### XRegExp.exec
+
+Su declaración es la siguiente:
+
+    XRegExp.exec(str, regex, [pos], [sticky])
+
+Donde __*str*__ es la cadena de caracteres a examinar; __*regex*__, la expresión de evaluación; __*[pos]*__, el 
+índice de comienzo del análisis, y __*[sticky]*__, un booleano que indica si el análisis solo puede empezar 
+desde una posición determinada o no. Su función es la de buscar coincidencias del patrón en la cadena y devolverlas
+como resultado. En caso de no encontrar coincidencias, devuelve el valor _null_.
 
 [replaceMethod]: https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_search
 [searchMethod]: https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_replace_regexp
 
 [testMethod]: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_regexp_test2
 [execMethod]: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_regexp_exec2
+
+[PMB]: https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane
+[XRESintaxis]: http://xregexp.com/syntax/

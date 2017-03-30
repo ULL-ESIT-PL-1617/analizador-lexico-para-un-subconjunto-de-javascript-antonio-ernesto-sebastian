@@ -9,6 +9,6 @@ Trabajo realizado por:
 * [Echeverría González, Ernesto](https://akaibf.github.io/)
 * [López Garnier, Antonio Jesús](https://antoniogarnier.github.io)
 <br><br>
-[Despliegue de Sebastián](http://10.6.128.103:8080)
-[Despliegue de Ernesto]()
-[Despliegue de Antonio]((http://10.6.128.121:8082)
+[Despliegue de Sebastián](http://10.6.128.103:8080)<br>
+[Despliegue de Ernesto](#)<br>
+[Despliegue de Antonio]((http://10.6.128.121:8082)<br>

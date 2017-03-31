@@ -10,5 +10,5 @@ Trabajo realizado por:
 * [López Garnier, Antonio Jesús](https://antoniogarnier.github.io)
 <br><br>
 [Despliegue de Sebastián](http://10.6.128.103:8080)<br>
-[Despliegue de Ernesto](10.6.129.175)<br>
+[Despliegue de Ernesto](http://10.6.129.175)<br>
 [Despliegue de Antonio](http://10.6.128.121:8083)<br>
